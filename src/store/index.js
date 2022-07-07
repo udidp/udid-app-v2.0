@@ -13,23 +13,23 @@ export const useStore = defineStore(storeName.ROOTSTORE, {
       isLogin: true,
       rootNav: [
         {
-          to: 'domains',
-          name: 'domains',
+          to: '/domains',
+          name: 'Domains',
           i18n: 'domains'
         },
         {
-          to: 'account',
-          name: 'account',
+          to: '/account',
+          name: 'Dccount',
           i18n: 'account'
         },
         {
-          to: 'favourites',
-          name: 'favourites',
+          to: '/favourites',
+          name: 'Favourites',
           i18n: 'favourites'
         },
         {
-          to: 'faq',
-          name: 'faq',
+          to: '/faq',
+          name: 'Faq',
           i18n: 'faq'
         }
       ]

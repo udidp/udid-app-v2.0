@@ -8,12 +8,10 @@ export default {
   [types.SET_METAMASK_LOGIN](payload) {
     this.chainId = payload.chainId || null
     this.walletAddress = payload.wallet || null
-    console.log(this)
     if (payload.chainId)
       Cookies.set(types.LAST_CHAINID_KEY, payload.chainId, { expires: 1 })
   },
   [types.UPDATE_CHAINID](state, chainId) {
-    console.log(chainId)
     state.chainId = chainId
     if (chainId) Cookies.set(types.LAST_CHAINID_KEY, chainId, { expires: 1 })
   },

@@ -4,18 +4,24 @@ const routes = [
   {
     path: '/',
     name: 'BasicLayout',
-    redirect: '',
+    redirect: '/domains',
     component: () => import('@/layouts/BasicLayout.vue'),
+    meta: {
+      keepAlive: true // 需要缓存
+    },
     children: [
-      {
-        path: '',
-        name: 'Home',
-        component: () => import('@/views/home/Home.vue')
-      },
       {
         path: '/domains',
         name: 'Domains',
-        component: () => import('@/views/domains/Domains.vue')
+        component: () => import('@/views/domains/Domains.vue'),
+        meta: {
+          keepAlive: true // 需要缓存
+        }
+      },
+      {
+        path: '/account',
+        name: 'Account',
+        component: () => import('@/views/account/Account.vue')
       }
       // {
       //   path: '/chain',
@@ -69,6 +75,15 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.path === 'domains') {
+    from.meta.keepAlive = true
+  } else {
+    from.meta.keepAlive = false
+  }
+  next()
 })
 
 export default router

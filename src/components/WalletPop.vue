@@ -35,7 +35,6 @@
 
 <script setup>
 // import Web3 from "web3";
-// import { ref, defineProps, defineEmits } from "vue";
 import { useStore, dappStore } from "@/store";
 
 import { isMetaMask } from "@/bizlib/metamask";

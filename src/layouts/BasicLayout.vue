@@ -19,7 +19,7 @@
     >
       <div class="flex justify-between items-center space-x-14">
         <!-- <a href="/"><img src="@/assets/layout/logo.svg" alt="" /></a> -->
-        <a href="/">
+        <a href="https://udid.network">
           <svg
             width="117"
             height="48"
@@ -738,7 +738,11 @@
         <span>connect wallet</span>
       </button>
     </header>
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </div>
   <WalletPop :show="walletBoxShow" @handleShow="changeShow()" />
 </template>
@@ -746,16 +750,28 @@
 <script setup>
 import { useStore, dappStore } from "@/store";
 import WalletPop from "@/components/WalletPop.vue";
-
+import { onBeforeRouteUpdate } from "vue-router";
 import { encry } from "@/utils/udidEffects.js";
 import { checkSupport } from "@/web3-lib/networks";
 
 const store = useStore();
 const router = useRouter();
-const navActive = ref("/");
+const route = useRoute();
+const navActive = ref("/domains");
 const skip = async (to) => {
   await router.push(to);
+  navActive.value = to;
 };
+onBeforeMount(() => {
+  console.log(route.path);
+  navActive.value = route.path;
+});
+
+onBeforeRouteUpdate((to) => {
+  console.log(to.path);
+  navActive.value = to.path;
+});
+
 const walletBoxShow = ref(false);
 const account = computed(() => {
   return encry(dappStore.walletAddress);
@@ -777,18 +793,15 @@ const autoLoginMetaMask = () => {
   setTimeout(() => {
     if (ethereum && ethereum.isMetaMask && ethereum.selectedAddress) {
       const wallet = ethereum.selectedAddress;
-      console.log("wallet", ethereum.selectedAddress);
       const chainId = parseInt(ethereum.chainId);
-      console.log("chainid", parseInt(ethereum.chainId));
       if (checkSupport(chainId)) {
-        console.log("2auto");
         dappStore.setMetaMaskLogin({ wallet, chainId });
       }
     }
     // else {
     //   commit(types.CLEAN_WEB3_STATE)
     // }
-  }, 1000);
+  }, 10);
 };
 autoLoginMetaMask();
 
@@ -797,7 +810,6 @@ const logoutMetamask = () => {
 };
 
 const isLogin = computed(() => {
-  console.log("disable", store.metaMaskDisabled);
   return !store.metaMaskDisabled;
 });
 
