@@ -763,12 +763,10 @@ const skip = async (to) => {
   navActive.value = to;
 };
 onBeforeMount(() => {
-  console.log(route.path);
   navActive.value = route.path;
 });
 
 onBeforeRouteUpdate((to) => {
-  console.log(to.path);
   navActive.value = to.path;
 });
 
@@ -820,7 +818,9 @@ const changeShow = () => {
 
 <style lang='less' scoped>
 #header {
-  background: rgba(0, 3, 0, 0.1);
-  backdrop-filter: blur(50px);
+  // background: rgba(0, 3, 0, 0.1);
+  background-image: radial-gradient(transparent 1px, rgba(0, 3, 0, 1) 1px);
+  background-size: 4px 4px;
+  backdrop-filter: saturate(50%) blur(20px);
 }
 </style>

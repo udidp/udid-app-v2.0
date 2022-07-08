@@ -1,4 +1,5 @@
 export default {
-  inputHolder: 'Get your udid',
+  searchInputHolder: 'Get your udid',
+  favorInputHolder: 'Serch your favorite',
   search: 'Search'
 }

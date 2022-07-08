@@ -1,10 +1,11 @@
 <script setup>
 import MainContainer from "@/layouts/MainContainer.vue";
+import Radio from "@/components/Radio.vue";
 import { dappStore } from "@/store";
 </script>
 
 <template>
-  <div id="account" class="mt-40 min-h-screen">
+  <div id="account" class="pt-40 min-h-screen">
     <MainContainer class="space-y-12 mx-auto">
       <h1 class="text-6xl font-medium">My Account</h1>
       <div
@@ -507,9 +508,7 @@ import { dappStore } from "@/store";
         <h3 class="text-xl font-bold">Root Domain</h3>
         <div class="f-r-s-c space-x-3">
           <span class="text-xl font-normal">Select All</span>
-          <div class="w-6 h-6 border-4 border-primary rounded-md f-r-c-c p-px">
-            <div class="w-3 h-3 bg-primary rounded-sm"></div>
-          </div>
+          <Radio />
         </div>
       </div>
       <div class="f-c-s-c space-y-5">

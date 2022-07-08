@@ -22,12 +22,12 @@ const routes = [
         path: '/account',
         name: 'Account',
         component: () => import('@/views/account/Account.vue')
+      },
+      {
+        path: '/favourites',
+        name: 'Favourites',
+        component: () => import('@/views/favourites/Favourites.vue')
       }
-      // {
-      //   path: '/chain',
-      //   name: 'Chain',
-      //   component: () => import('@/views/chain/Chain.vue')
-      // },
       // {
       //   path: '/topdomain',
       //   name: 'Topdomain',
