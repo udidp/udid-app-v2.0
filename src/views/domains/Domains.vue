@@ -20,6 +20,8 @@ const isRoute = ref(null);
 onBeforeMount(() => {
   isRoute.value = route.query.q;
 });
+
+console.log("1/2");
 </script>
 
 <template>
@@ -68,11 +70,7 @@ onBeforeMount(() => {
     />
   </div>
   <div v-else id="domains" class="pt-40">
-    <SearchBox
-      inputWidth="1/2"
-      class="mx-auto"
-      placeHolder="searchInputHolder"
-    />
+    <SearchBox class="mx-auto" placeHolder="searchInputHolder" />
     <MainContainer class="mt-16 mb-20 space-y-12 mx-auto">
       <div class="f-r-b-c">
         <h3 class="text-xl font-bold">Sub Domain Search Results</h3>
@@ -84,26 +82,6 @@ onBeforeMount(() => {
       <div class="f-c-s-c space-y-5">
         <template v-for="item of listAmount" :key="item">
           <DomainItem></DomainItem>
-          <!-- <div
-            style="background: rgba(255, 255, 255, 0.04); border-radius: 20px"
-            class="f-r-b-c py-5 p-8 w-full"
-          >
-            <div class="f-r-c-c space-x-4">
-              <img src="@/views/domains/images/favor.svg" alt="" />
-              <span class="text-4xl font-bold">625.satoshi</span>
-              <div class="f-r-c-c space-x-1">
-                <div class="w-1 h-1 bg-primary rounded-full"></div>
-                <span class="text-sm text-primary">Available</span>
-              </div>
-            </div>
-            <div class="f-r-c-c space-x-4">
-              <div class="f-r-c-c space-x-2">
-                <img src="@/views/domains/images/usdt.svg" alt="" />
-                <span class="text-3xl font-normal">10.00</span>
-              </div>
-              <button class="py-2 px-3 rounded-md text-lg">Register</button>
-            </div>
-          </div> -->
         </template>
         <p
           @click="changeList"
