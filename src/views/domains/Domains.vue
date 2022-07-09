@@ -3,6 +3,7 @@ import SearchBox from "@/components/SearchBox.vue";
 import MainContainer from "@/layouts/MainContainer.vue";
 import DomainItem from "@/components/DomainItem.vue";
 import Radio from "@/components/Radio.vue";
+
 const route = useRoute();
 const afterSearch = ref(false);
 const handleAfterSearch = (value) => {
@@ -20,8 +21,6 @@ const isRoute = ref(null);
 onBeforeMount(() => {
   isRoute.value = route.query.q;
 });
-
-console.log("1/2");
 </script>
 
 <template>

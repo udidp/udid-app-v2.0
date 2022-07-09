@@ -12,20 +12,23 @@ const props = defineProps({
 });
 
 const inputValue = ref("");
+const cardValue = ref("");
 const search = async () => {
-  await router.push({
-    name: "Domains",
-    query: {
-      q: inputValue.value,
-    },
-  });
-
+  cardValue.value = inputValue.value;
+  if (route.path === "/domains") {
+    await router.push({
+      name: "Domains",
+      query: {
+        q: inputValue.value,
+      },
+    });
+  }
   emits("handleAfterSearch", true);
 };
 const isRoute = ref(null);
 onBeforeMount(() => {
   inputValue.value = route.query.q;
-
+  cardValue.value = route.query.q;
   isRoute.value = route.query.q;
 });
 </script>
@@ -90,7 +93,7 @@ onBeforeMount(() => {
                 font-bold
                 z-20
               "
-              >.{{ inputValue }}
+              >.{{ cardValue }}
             </span>
             <div
               class="

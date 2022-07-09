@@ -15,6 +15,7 @@
         w-screen
         h-20
         z-40
+        border-b border-white border-opacity-0
       "
     >
       <div class="flex justify-between items-center space-x-14">
