@@ -17,11 +17,6 @@ const configDialogOff = () => {
 </script>
 
 <template>
-  <RegisConfig
-    :configShow="configShow"
-    :dialogShow="dialogShow"
-    @configDialogOff="configDialogOff"
-  />
   <div
     style="background: rgba(255, 255, 255, 0.04); border-radius: 20px"
     class="f-r-b-c py-5 p-8 w-full"
@@ -44,6 +39,11 @@ const configDialogOff = () => {
       </button>
       <slot />
     </div>
+    <RegisConfig
+      :configShow="configShow"
+      :dialogShow="dialogShow"
+      @configDialogOff="configDialogOff"
+    />
   </div>
 </template>
 <style lang='less' scoped>

@@ -1,4 +1,5 @@
 <script setup>
+import { onBeforeRouteLeave } from "vue-router";
 import SearchBox from "@/components/SearchBox.vue";
 import MainContainer from "@/layouts/MainContainer.vue";
 import DomainItem from "@/components/DomainItem.vue";
@@ -21,6 +22,16 @@ const isRoute = ref(null);
 onBeforeMount(() => {
   isRoute.value = route.query.q;
 });
+
+// onBeforeRouteLeave((to, from, next) => {
+//   if (from.query.q) {
+//     from.meta.keepAlive = true;
+//   } else {
+//     from.meta.keepAlive = false;
+//   }
+//   console.log(from, from.meta.keepAlive);
+//   next();
+// });
 </script>
 
 <template>
@@ -65,7 +76,7 @@ onBeforeMount(() => {
       :afterSearch="afterSearch"
       placeHolder="searchInputHolder"
       @handleAfterSearch="handleAfterSearch"
-      class="w-3/5 z-10"
+      class="w-full l:w-3/5 z-10"
     />
   </div>
   <div v-else id="domains" class="pt-40">

@@ -739,10 +739,22 @@
         <span>connect wallet</span>
       </button>
     </header>
-    <router-view v-slot="{ Component }">
+    <router-view v-slot="{ Component, route }">
+      <component
+        :key="route.path"
+        :is="Component"
+        v-if="!$route.meta.keepAlive"
+      />
       <keep-alive>
-        <component :is="Component" />
+        <component
+          :key="route.path"
+          :is="Component"
+          v-if="$route.meta.keepAlive"
+        />
       </keep-alive>
+      <!-- <keep-alive>
+        <component :is="Component" />
+      </keep-alive> -->
     </router-view>
   </div>
   <WalletPop :show="walletBoxShow" @handleShow="changeShow()" />
@@ -821,7 +833,7 @@ const changeShow = () => {
 #header {
   // background: rgba(0, 3, 0, 0.1);
   background-image: radial-gradient(transparent 1px, rgba(0, 3, 0, 1) 1px);
-  background-size: 4px 4px;
+  background-size: 6px 6px;
   backdrop-filter: saturate(50%) blur(20px);
 }
 </style>

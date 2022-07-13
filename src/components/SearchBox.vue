@@ -2,6 +2,23 @@
 import { onBeforeMount } from "@vue/runtime-core";
 
 import MainContainer from "@/layouts/MainContainer.vue";
+import RegisConfig from "@/components/RegisConfig.vue";
+
+let dialogShow = ref({});
+let configShow = ref({});
+
+const configDialogShow = () => {
+  configShow.value = {
+    transition: "all 0.3s ease-in-out",
+    transform: "translateY(0)",
+  };
+  dialogShow.value = { visibility: "visible", opacity: 1 };
+};
+const configDialogOff = () => {
+  configShow.value = {};
+  dialogShow.value = {};
+};
+
 const router = useRouter();
 const route = useRoute();
 const emits = defineEmits(["handleAfterSearch"]);
@@ -156,7 +173,12 @@ onBeforeMount(() => {
               </div>
             </div>
             <div class="mt-12 f-r-b-c w-full">
-              <button class="py-2.5 rounded-lg px-12 text-lg">Register</button>
+              <button
+                @click="configDialogShow"
+                class="py-2.5 rounded-lg px-12 text-lg"
+              >
+                Register
+              </button>
               <img
                 class="cursor-pointer"
                 src="@/views/domains/images/un-favor.svg"
@@ -167,6 +189,12 @@ onBeforeMount(() => {
         </div>
       </div>
     </MainContainer>
+    <RegisConfig
+      v-if="isRoute"
+      :configShow="configShow"
+      :dialogShow="dialogShow"
+      @configDialogOff="configDialogOff"
+    />
   </div>
 </template>
 <style lang='less' scoped>

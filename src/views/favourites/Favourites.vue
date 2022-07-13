@@ -6,10 +6,12 @@ import Radio from "@/components/Radio.vue";
 </script>
 
 <template>
-  <div id="favourites" class="pt-40 min-h-screen">
-    <MainContainer class="space-y-12 mx-auto">
+  <div id="favourites" class="pt-40 min-h-screen space-y-12">
+    <MainContainer class="mx-auto">
       <h1 class="text-6xl font-medium">My Favourites</h1>
-      <SearchBox placeHolder="favorInputHolder" />
+    </MainContainer>
+    <SearchBox placeHolder="favorInputHolder" />
+    <MainContainer class="space-y-12 mx-auto">
       <div class="f-r-b-c">
         <h3 class="text-xl font-bold">Sub Domain Search Results</h3>
         <div class="f-r-s-c space-x-3">

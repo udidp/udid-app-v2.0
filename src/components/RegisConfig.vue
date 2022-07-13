@@ -10,6 +10,8 @@ const emits = defineEmits(["configDialogOff"]);
 const configDialogOff = () => {
   emits("configDialogOff");
 };
+
+const regYears = ref(5);
 </script>
 
 <template>
@@ -21,6 +23,7 @@ const configDialogOff = () => {
       h-screen
       fixed
       top-0
+      left-0
       bg-black
       z-50
       bg-opacity-80
@@ -58,7 +61,7 @@ const configDialogOff = () => {
       <div class="py-4 px-7 space-y-6" style="background: #1c1c1c">
         <div class="f-r-s-c space-x-9">
           <span class="text-lg font-medium opacity-70">Years:</span>
-          <el-input-number v-model="num1" size="large" />
+          <el-input-number v-model="regYears" size="large" :min="1" :max="5" />
         </div>
         <div class="f-r-s-c space-x-9">
           <span class="text-lg font-medium opacity-70">Price:</span>

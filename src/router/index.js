@@ -26,7 +26,10 @@ const routes = [
       {
         path: '/favourites',
         name: 'Favourites',
-        component: () => import('@/views/favourites/Favourites.vue')
+        component: () => import('@/views/favourites/Favourites.vue'),
+        meta: {
+          keepAlive: true // 需要缓存
+        }
       }
       // {
       //   path: '/topdomain',
