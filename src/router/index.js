@@ -13,10 +13,10 @@ const routes = [
       {
         path: '/domains',
         name: 'Domains',
-        component: () => import('@/views/domains/Domains.vue'),
-        meta: {
-          keepAlive: true // 需要缓存
-        }
+        component: () => import('@/views/domains/Domains.vue')
+        // meta: {
+        //   keepAlive: true // 需要缓存
+        // }
       },
       {
         path: '/account',
@@ -26,10 +26,10 @@ const routes = [
       {
         path: '/favourites',
         name: 'Favourites',
-        component: () => import('@/views/favourites/Favourites.vue'),
-        meta: {
-          keepAlive: true // 需要缓存
-        }
+        component: () => import('@/views/favourites/Favourites.vue')
+        // meta: {
+        //   keepAlive: true // 需要缓存
+        // }
       }
       // {
       //   path: '/topdomain',

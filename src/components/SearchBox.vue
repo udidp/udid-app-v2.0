@@ -40,6 +40,7 @@ const search = async () => {
       },
     });
   }
+
   emits("handleAfterSearch", true);
 };
 const isRoute = ref(null);

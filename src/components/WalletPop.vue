@@ -45,7 +45,6 @@ const store = useStore();
 const props = defineProps({
   show: Boolean,
 });
-
 const emits = defineEmits(["handleShow"]);
 const handleShow = () => {
   emits("handleShow", false);

@@ -511,6 +511,7 @@ import { dappStore } from "@/store";
           <Radio />
         </div>
       </div>
+
       <div class="f-c-s-c space-y-5">
         <template v-for="item of 10" :key="item">
           <div
@@ -926,6 +927,7 @@ import { dappStore } from "@/store";
           </div>
         </div>
       </div>
+
       <div class="f-c-s-c space-y-5">
         <template v-for="item of 6" :key="item">
           <div
